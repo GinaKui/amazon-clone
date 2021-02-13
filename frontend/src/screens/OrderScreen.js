@@ -1,8 +1,8 @@
-import Axios from 'axios';
-import { PayPalButton } from 'react-paypal-button-v2';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
+import { PayPalButton } from 'react-paypal-button-v2';
 import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -18,7 +18,6 @@ export default function OrderScreen(props) {
   const { order, loading, error } = orderDetails;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-
   const orderPay = useSelector((state) => state.orderPay);
   const {
     loading: loadingPay,

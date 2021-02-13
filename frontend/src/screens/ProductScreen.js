@@ -8,23 +8,21 @@ import Rating from '../components/Rating';
 import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default function ProductScreen(props) {
-  const dispatch = useDispatch();
   const productId = props.match.params.id;
   const [qty, setQty] = useState(1);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
+  const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
     loading: loadingReviewCreate,
     error: errorReviewCreate,
     success: successReviewCreate,
   } = productReviewCreate;
-
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
 
   useEffect(() => {
     if (successReviewCreate) {
